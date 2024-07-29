@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Music</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Lista de Canciones</h1>
+    <ul>
+        {% for nombre, artista, album, ruta in canciones %}
+        <li>
+            <strong>{{ nombre }}</strong> - {{ artista }} ({{ album }})
+            <audio controls>
+                <source src="{{ ruta }}" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
